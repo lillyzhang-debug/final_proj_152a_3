@@ -1,0 +1,24 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/imports/Downloads/ClockDivider.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/imports/lab3/display.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/imports/lab3/stopwatch.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module stopwatch
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/rand_num_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_number_generator
+INFO: [VRFC 10-2458] undeclared symbol feedback, assumed default net type wire [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/rand_num_gen.v:33]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/menu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_controller
+INFO: [VRFC 10-311] analyzing module game_fsm
+WARNING: [VRFC 10-1315] redeclaration of ansi port timer is not allowed [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/menu.v:74]
+INFO: [VRFC 10-311] analyzing module led_controller
+INFO: [VRFC 10-311] analyzing module display_info
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module score_top_module
+INFO: [VRFC 10-2458] undeclared symbol timer, assumed default net type wire [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:49]
+INFO: [VRFC 10-311] analyzing module score_tabulator
+INFO: [VRFC 10-311] analyzing module display_parser
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/top_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_module
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.sim/sim_2/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
