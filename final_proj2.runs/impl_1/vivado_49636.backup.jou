@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Mon Dec  1 15:11:14 2025
+# Process ID         : 49636
+# Current directory  : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/impl_1
+# Command line       : vivado.exe -log top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
+# Log file           : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/impl_1/top_module.vdi
+# Journal file       : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/impl_1\vivado.jou
+# Running On         : lillys_rog
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M           
+# CPU Frequency      : 1996 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 33412 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 57035 MB
+# Available Virtual  : 20413 MB
+#-----------------------------------------------------------
+source top_module.tcl -notrace

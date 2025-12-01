@@ -1,10 +1,45 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Student" Host="CS152A-03" Pid="13376">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="7932" HostCore="24" HostMemory="033412722688">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Student" Host="CS152A-03" Pid="11716">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="37388" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="37276" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="45068" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="39308" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="51108" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="46228" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="44880" HostCore="24" HostMemory="033412722688">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="lilly" Host="LILLYS_ROG" Pid="45604" HostCore="24" HostMemory="033412722688">
     </Process>
 </ProcessHandle>

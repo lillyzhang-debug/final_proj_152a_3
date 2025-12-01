@@ -1,12 +1,24 @@
 #-----------------------------------------------------------
-# Vivado v2018.2 (64-bit)
-# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
-# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon Dec  1 11:40:07 2025
-# Process ID: 8628
-# Current directory: C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.runs/impl_1
-# Command line: vivado.exe -log score_top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source score_top_module.tcl -notrace
-# Log file: C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.runs/impl_1/score_top_module.vdi
-# Journal file: C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.runs/impl_1\vivado.jou
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Mon Dec  1 15:43:30 2025
+# Process ID         : 47456
+# Current directory  : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/impl_1
+# Command line       : vivado.exe -log top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
+# Log file           : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/impl_1/top_module.vdi
+# Journal file       : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/impl_1\vivado.jou
+# Running On         : lillys_rog
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M           
+# CPU Frequency      : 1996 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 33412 MB
+# Swap memory        : 23622 MB
+# Total Virtual      : 57035 MB
+# Available Virtual  : 20570 MB
 #-----------------------------------------------------------
-source score_top_module.tcl -notrace
+source top_module.tcl -notrace

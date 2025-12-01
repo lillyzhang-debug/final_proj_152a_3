@@ -1,249 +1,340 @@
 
 *** Running vivado
-    with args -log score_top_module.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source score_top_module.tcl
+    with args -log top_module.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
 
 
-****** Vivado v2018.2 (64-bit)
-  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
-  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source score_top_module.tcl -notrace
-Command: synth_design -top score_top_module -part xc7a35tcpg236-1
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Mon Dec  1 15:42:15 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source top_module.tcl -notrace
+create_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 527.855 ; gain = 247.332
+Command: read_checkpoint -auto_incremental -incremental C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/utils_1/imports/synth_1/score_top_module.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/utils_1/imports/synth_1/score_top_module.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top_module -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7148 
-WARNING: [Synth 8-2611] redeclaration of ansi port timer is not allowed [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/menu.v:74]
-WARNING: [Synth 8-976] timer has already been declared [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/menu.v:74]
-WARNING: [Synth 8-2654] second declaration of timer ignored [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/menu.v:74]
-INFO: [Synth 8-994] timer is declared here [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/menu.v:61]
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 51068
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 369.820 ; gain = 111.047
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1211.363 ; gain = 494.797
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'score_top_module' [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:22]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:38]
-INFO: [Synth 8-6157] synthesizing module 'score_tabulator' [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:58]
-INFO: [Synth 8-6155] done synthesizing module 'score_tabulator' (1#1) [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:58]
-WARNING: [Synth 8-350] instance 'nolabel_line38' of module 'score_tabulator' requires 5 connections, but only 4 given [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:38]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-INFO: [Synth 8-6157] synthesizing module 'display_parser' [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:82]
-INFO: [Synth 8-6155] done synthesizing module 'display_parser' (2#1) [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:82]
-WARNING: [Synth 8-689] width (1) of port connection 'timer' does not match port width (16) of module 'display_parser' [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:49]
-WARNING: [Synth 8-350] instance 'nolabel_line46' of module 'display_parser' requires 8 connections, but only 2 given [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3848] Net ones in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:28]
-WARNING: [Synth 8-3848] Net tens in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:29]
-WARNING: [Synth 8-3848] Net hundreds in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:30]
-WARNING: [Synth 8-3848] Net thousands in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:31]
-WARNING: [Synth 8-3848] Net sec in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:32]
-WARNING: [Synth 8-3848] Net ten_sec in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:33]
-WARNING: [Synth 8-3848] Net timer in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:49]
-WARNING: [Synth 8-3848] Net current_score in module/entity score_top_module does not have driver. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:36]
-INFO: [Synth 8-6155] done synthesizing module 'score_top_module' (3#1) [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:22]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port game_mode
+INFO: [Synth 8-11241] undeclared symbol 'feedback', assumed default net type 'wire' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/rand_num_gen.v:33]
+INFO: [Synth 8-11241] undeclared symbol 'current_timer', assumed default net type 'wire' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:41]
+INFO: [Synth 8-11241] undeclared symbol 'user_hit_w', assumed default net type 'wire' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:54]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'timer' is not allowed [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:98]
+INFO: [Synth 8-11241] undeclared symbol 'timer', assumed default net type 'wire' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:110]
+INFO: [Synth 8-6157] synthesizing module 'top_module' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clock' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/ClockDivider.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'clock' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/ClockDivider.v:3]
+WARNING: [Synth 8-7071] port 'led' of module 'clock' is unconnected for instance 'clock_inst' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:38]
+WARNING: [Synth 8-7023] instance 'clock_inst' of module 'clock' has 5 connections declared, but only 4 given [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:38]
+INFO: [Synth 8-6157] synthesizing module 'input_processing' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'input_processing' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:1]
+INFO: [Synth 8-6157] synthesizing module 'display' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/lab3/display.v:1]
+INFO: [Synth 8-226] default block is never used [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/lab3/display.v:42]
+INFO: [Synth 8-6155] done synthesizing module 'display' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/lab3/display.v:1]
+WARNING: [Synth 8-689] width (4) of port connection 'tens' does not match port width (3) of module 'display' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:69]
+WARNING: [Synth 8-689] width (4) of port connection 'thousands' does not match port width (3) of module 'display' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:71]
+WARNING: [Synth 8-7071] port 'adj' of module 'display' is unconnected for instance 'mod4' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:63]
+WARNING: [Synth 8-7071] port 'sel' of module 'display' is unconnected for instance 'mod4' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:63]
+WARNING: [Synth 8-7071] port 'LED_on' of module 'display' is unconnected for instance 'mod4' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:63]
+WARNING: [Synth 8-7071] port 'led' of module 'display' is unconnected for instance 'mod4' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:63]
+WARNING: [Synth 8-7023] instance 'mod4' of module 'display' has 14 connections declared, but only 10 given [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:63]
+INFO: [Synth 8-6157] synthesizing module 'random_number_generator' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/rand_num_gen.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'random_number_generator' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/rand_num_gen.v:23]
+WARNING: [Synth 8-7071] port 'rand_num' of module 'random_number_generator' is unconnected for instance 'mod5' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:82]
+WARNING: [Synth 8-7023] instance 'mod5' of module 'random_number_generator' has 5 connections declared, but only 4 given [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:82]
+INFO: [Synth 8-6157] synthesizing module 'game_controller' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:2]
+INFO: [Synth 8-6157] synthesizing module 'game_fsm' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:80]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'game_fsm' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:80]
+WARNING: [Synth 8-689] width (1) of port connection 'timer' does not match port width (16) of module 'game_fsm' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:41]
+INFO: [Synth 8-6157] synthesizing module 'led_controller' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:167]
+INFO: [Synth 8-6155] done synthesizing module 'led_controller' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:167]
+INFO: [Synth 8-6157] synthesizing module 'display_info' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:209]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:230]
+INFO: [Synth 8-6155] done synthesizing module 'display_info' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:209]
+WARNING: [Synth 8-689] width (4) of port connection 'tens' does not match port width (3) of module 'display_info' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:71]
+WARNING: [Synth 8-689] width (4) of port connection 'thousands' does not match port width (3) of module 'display_info' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:73]
+INFO: [Synth 8-6155] done synthesizing module 'game_controller' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:2]
+WARNING: [Synth 8-689] width (4) of port connection 'keypad' does not match port width (2) of module 'game_controller' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:93]
+WARNING: [Synth 8-689] width (1) of port connection 'timer' does not match port width (16) of module 'game_controller' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:110]
+INFO: [Synth 8-6157] synthesizing module 'score_top_module' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:22]
+INFO: [Synth 8-6157] synthesizing module 'score_tabulator' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'score_tabulator' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:66]
+INFO: [Synth 8-6157] synthesizing module 'display_parser' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:90]
+INFO: [Synth 8-6155] done synthesizing module 'display_parser' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:90]
+INFO: [Synth 8-6155] done synthesizing module 'score_top_module' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:22]
+WARNING: [Synth 8-689] width (1) of port connection 'timer' does not match port width (16) of module 'score_top_module' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:123]
+WARNING: [Synth 8-7071] port 'game_mode' of module 'score_top_module' is unconnected for instance 'mod7' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:117]
+WARNING: [Synth 8-7023] instance 'mod7' of module 'score_top_module' has 12 connections declared, but only 11 given [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:117]
+INFO: [Synth 8-6155] done synthesizing module 'top_module' (0#1) [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:6]
+WARNING: [Synth 8-6014] Unused sequential element sync_sw15_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:26]
+WARNING: [Synth 8-6014] Unused sequential element sync_sw14_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:27]
+WARNING: [Synth 8-6014] Unused sequential element sync_btnU_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:29]
+WARNING: [Synth 8-6014] Unused sequential element sync_btnA_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:30]
+WARNING: [Synth 8-6014] Unused sequential element sync_btnB_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:31]
+WARNING: [Synth 8-6014] Unused sequential element sync_btnC_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:32]
+WARNING: [Synth 8-6014] Unused sequential element sync_btnD_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:33]
+WARNING: [Synth 8-3848] Net sw13 in module/entity input_processing does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v:16]
+WARNING: [Synth 8-6014] Unused sequential element countdown_reg was removed.  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:150]
+WARNING: [Synth 8-7137] Register generate_nums_reg in module game_fsm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:114]
+WARNING: [Synth 8-7137] Register duration_reg in module game_fsm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:118]
+WARNING: [Synth 8-3848] Net sec in module/entity game_controller does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:21]
+WARNING: [Synth 8-3848] Net ten_sec in module/entity game_controller does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:22]
+WARNING: [Synth 8-3848] Net timer in module/entity game_controller does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:24]
+WARNING: [Synth 8-3848] Net led in module/entity top_module does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:17]
+WARNING: [Synth 8-3848] Net clk_en_4hz in module/entity top_module does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:25]
+WARNING: [Synth 8-3848] Net user_hit in module/entity top_module does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:115]
+WARNING: [Synth 8-3848] Net reaction_time in module/entity top_module does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:113]
+WARNING: [Synth 8-3848] Net keypad in module/entity top_module does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:30]
+WARNING: [Synth 8-3848] Net generate_num in module/entity top_module does not have driver. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v:77]
+WARNING: [Synth 8-7129] Port game_mode in module score_top_module is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[3] in module display_info is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[3] in module display_info is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[3] in module display_info is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[15] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[14] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[13] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[12] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[11] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[10] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[9] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[8] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[7] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[6] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[5] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[4] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw13 in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnU in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnA in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnB in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnC in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btnD in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[15] in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[14] in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[13] in module input_processing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[3] in module top_module is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module top_module is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module top_module is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module top_module is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 403.141 ; gain = 144.367
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1321.934 ; gain = 605.367
 ---------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[13] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[12] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[11] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[10] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[9] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[8] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[7] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[6] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[5] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[4] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[3] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[2] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[1] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:score[0] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
-WARNING: [Synth 8-3295] tying undriven pin nolabel_line46:timer[0] to constant 0 [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:46]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 403.141 ; gain = 144.367
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1321.934 ; gain = 605.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 403.141 ; gain = 144.367
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1321.934 ; gain = 605.367
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1321.934 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc]
-WARNING: [Vivado 12-584] No ports matched 'sw[13]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:25]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:25]
+Parsing XDC File [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc]
+WARNING: [Vivado 12-584] No ports matched 'btnS'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:67]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sw[14]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:26]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:26]
+WARNING: [Vivado 12-584] No ports matched 'JB[0]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:85]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sw[15]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:27]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:27]
+WARNING: [Vivado 12-584] No ports matched 'JB[1]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:86]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:31]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:31]
+WARNING: [Vivado 12-584] No ports matched 'JB[2]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:87]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:32]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:32]
+WARNING: [Vivado 12-584] No ports matched 'JB[3]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:88]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:33]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:33]
+WARNING: [Vivado 12-584] No ports matched 'JB[4]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:89]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:34]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:34]
+WARNING: [Vivado 12-584] No ports matched 'JB[5]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:90]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:50]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:50]
+WARNING: [Vivado 12-584] No ports matched 'JB[6]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:91]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:51]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:51]
+WARNING: [Vivado 12-584] No ports matched 'JB[7]'. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:92]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:52]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:52]
+Finished Parsing XDC File [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_module_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_module_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/lilly/Downloads/const_keypad.xdc]
+WARNING: [Vivado 12-584] No ports matched 'cols[0]'. [C:/Users/lilly/Downloads/const_keypad.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:33]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:53]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:53]
+WARNING: [Vivado 12-584] No ports matched 'cols[0]'. [C:/Users/lilly/Downloads/const_keypad.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:34]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:54]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:54]
+WARNING: [Vivado 12-584] No ports matched 'cols[1]'. [C:/Users/lilly/Downloads/const_keypad.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:36]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:55]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:55]
+WARNING: [Vivado 12-584] No ports matched 'cols[1]'. [C:/Users/lilly/Downloads/const_keypad.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:37]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:56]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:56]
+WARNING: [Vivado 12-584] No ports matched 'cols[2]'. [C:/Users/lilly/Downloads/const_keypad.xdc:39]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:39]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'an[0]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:60]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:60]
+WARNING: [Vivado 12-584] No ports matched 'cols[2]'. [C:/Users/lilly/Downloads/const_keypad.xdc:40]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:40]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'an[1]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:61]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:61]
+WARNING: [Vivado 12-584] No ports matched 'cols[3]'. [C:/Users/lilly/Downloads/const_keypad.xdc:42]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:42]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'an[2]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:62]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:62]
+WARNING: [Vivado 12-584] No ports matched 'cols[3]'. [C:/Users/lilly/Downloads/const_keypad.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:43]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'an[3]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:63]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:63]
+WARNING: [Vivado 12-584] No ports matched 'rows[0]'. [C:/Users/lilly/Downloads/const_keypad.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:45]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnS'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:67]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:67]
+WARNING: [Vivado 12-584] No ports matched 'rows[0]'. [C:/Users/lilly/Downloads/const_keypad.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:46]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[0]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:85]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:85]
+WARNING: [Vivado 12-584] No ports matched 'rows[1]'. [C:/Users/lilly/Downloads/const_keypad.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:48]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[1]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:86]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:86]
+WARNING: [Vivado 12-584] No ports matched 'rows[1]'. [C:/Users/lilly/Downloads/const_keypad.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:49]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[2]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:87]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:87]
+WARNING: [Vivado 12-584] No ports matched 'rows[2]'. [C:/Users/lilly/Downloads/const_keypad.xdc:51]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:51]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[3]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:88]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:88]
+WARNING: [Vivado 12-584] No ports matched 'rows[2]'. [C:/Users/lilly/Downloads/const_keypad.xdc:52]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:52]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[4]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:89]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:89]
+WARNING: [Vivado 12-584] No ports matched 'rows[3]'. [C:/Users/lilly/Downloads/const_keypad.xdc:54]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:54]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[5]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:90]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:90]
+WARNING: [Vivado 12-584] No ports matched 'rows[3]'. [C:/Users/lilly/Downloads/const_keypad.xdc:55]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/lilly/Downloads/const_keypad.xdc:55]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[6]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:91]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:91]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JB[7]'. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:92]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc:92]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/constrs_1/imports/Downloads/Basys-3_lab4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/score_top_module_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/score_top_module_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Finished Parsing XDC File [C:/Users/lilly/Downloads/const_keypad.xdc]
 Completed Processing XDC Constraints
 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1385.320 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 726.207 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1385.320 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1385.320 ; gain = 668.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1385.320 ; gain = 668.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1385.320 ; gain = 668.754
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'game_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 |                              000
+                 STARTUP |                              010 |                              001
+                 PLAYING |                              100 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'game_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1385.320 ; gain = 668.754
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     14 Bit       Adders := 1     
+	   2 Input   27 Bit       Adders := 1     
+	   2 Input   24 Bit       Adders := 1     
+	   2 Input   20 Bit       Adders := 1     
+	   2 Input   18 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
+	   3 Input   14 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   4 Input      1 Bit         XORs := 1     
 +---Registers : 
+	               27 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
 	               14 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 11    
+	                1 Bit    Registers := 28    
++---Muxes : 
+	   2 Input   16 Bit        Muxes := 1     
+	   3 Input   16 Bit        Muxes := 1     
+	   2 Input   15 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 4     
+	   2 Input    4 Bit        Muxes := 9     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 5     
+	   4 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 26    
+	   3 Input    1 Bit        Muxes := 8     
+	   4 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module score_tabulator 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     14 Bit       Adders := 1     
-+---Registers : 
-	               14 Bit    Registers := 1     
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Part Resource Summary
@@ -257,87 +348,102 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element nolabel_line38/current_score_reg was removed.  [C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.srcs/sources_1/new/score_tabulator.v:71]
-WARNING: [Synth 8-3330] design score_top_module has an empty top module
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ones[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port tens[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port hundreds[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port thousands[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port sec[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port ten_sec[0]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port clk
-WARNING: [Synth 8-3331] design score_top_module has unconnected port game_mode
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reset
-WARNING: [Synth 8-3331] design score_top_module has unconnected port user_hit
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[10]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[9]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[8]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[7]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[6]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[5]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[4]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[3]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[2]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[1]
-WARNING: [Synth 8-3331] design score_top_module has unconnected port reaction_time[0]
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port game_mode in module score_top_module is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_sec[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[15] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[14] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[13] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[12] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[11] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[10] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[9] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[8] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[7] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[6] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[5] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[4] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port timer[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ones_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tens_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hundreds_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thousands_score[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seconds[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[3] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[2] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[1] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ten_seconds[0] in module game_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw13 in module input_processing is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/hundreds_reg[3]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/hundreds_reg[2]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/hundreds_reg[1]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/hundreds_reg[0]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:234]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/thousands_reg[2]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/thousands_reg[1]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'mod6/mode_di/thousands_reg[0]/Q' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v:235]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin tens[3] with 1st driver pin 'mod7/mod_dp/tens_inferred/tens[3]' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:104]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin tens[3] with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:104]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net tens[3] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:104]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin thousands[3] with 1st driver pin 'mod7/mod_dp/thousands_inferred/thousands[3]' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin thousands[3] with 2nd driver pin 'GND' [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net thousands[3] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v:106]
+WARNING: [Synth 8-3332] Sequential element (mod6/mod_gfsm/FSM_onehot_current_state_reg[2]) is unused and will be removed from module top_module.
+WARNING: [Synth 8-3332] Sequential element (mod6/mod_gfsm/FSM_onehot_current_state_reg[1]) is unused and will be removed from module top_module.
+WARNING: [Synth 8-3332] Sequential element (mod6/mod_gfsm/FSM_onehot_current_state_reg[0]) is unused and will be removed from module top_module.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1385.320 ; gain = 668.754
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1525.199 ; gain = 808.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1544.410 ; gain = 827.844
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 726.207 ; gain = 467.434
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1554.750 ; gain = 838.184
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -354,50 +460,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -410,36 +503,44 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |OBUFT |    24|
-+------+------+------+
-
-Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |    24|
-+------+---------+-------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     5|
+|3     |LUT1   |     1|
+|4     |LUT2   |     5|
+|5     |LUT3   |     1|
+|6     |LUT5   |     1|
+|7     |LUT6   |     3|
+|8     |FDRE   |    23|
+|9     |IBUF   |     1|
+|10    |OBUF   |    11|
+|11    |OBUFT  |     4|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 41 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 727.035 ; gain = 145.195
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 727.035 ; gain = 468.262
+Synthesis finished with 0 errors, 27 critical warnings and 59 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:42 . Memory (MB): peak = 1769.887 ; gain = 989.934
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 1769.887 ; gain = 1053.320
 INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1769.887 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1769.887 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
+Synth Design complete | Checksum: 1369fd65
 INFO: [Common 17-83] Releasing license: Synthesis
-17 Infos, 124 Warnings, 27 Critical Warnings and 0 Errors encountered.
+55 Infos, 169 Warnings, 52 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 746.824 ; gain = 501.066
-WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Student/Desktop/Group13/final_project_2/final_project_2.runs/synth_1/score_top_module.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file score_top_module_utilization_synth.rpt -pb score_top_module_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 746.824 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Dec  1 11:38:37 2025...
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:53 . Memory (MB): peak = 1769.887 ; gain = 1236.852
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1769.887 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/synth_1/top_module.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Dec  1 15:43:22 2025...

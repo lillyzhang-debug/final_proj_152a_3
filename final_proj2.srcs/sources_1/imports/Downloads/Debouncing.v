@@ -35,7 +35,7 @@ always @(posedge clk) begin
     end else begin //two flip flops 
 
         sync_sw15[0] <= sw[15];
-        sync_sw15[1] <= sync_sw0[0];
+        sync_sw15[1] <= sync_sw15[0];
     
         sync_sw14[0] <= sw[14];
         sync_sw14[1] <= sync_sw14[0];
@@ -70,12 +70,12 @@ always @(posedge clk) begin
     if (start == 1'b1) begin
         deb_sw15 <= 2'b00;
         deb_sw14 <= 2'b00;
-        deb_btnL <= 2'b00;
-        deb_btnR <= 2'b00;
-        stable_sw0 <= 1'b0;
-        stable_sw1 <= 1'b0;
-        stable_btnL <= 1'b0;
-        stable_btnR <= 1'b0;
+//        deb_btnL <= 2'b00;
+//        deb_btnR <= 2'b00;
+//        stable_sw0 <= 1'b0;
+//        stable_sw1 <= 1'b0;
+//        stable_btnL <= 1'b0;
+//        stable_btnR <= 1'b0;
 
     end else begin
 

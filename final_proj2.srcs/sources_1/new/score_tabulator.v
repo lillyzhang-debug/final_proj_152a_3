@@ -25,6 +25,7 @@ module score_top_module (
     input reset,
     input user_hit,
     input [10:0] reaction_time,
+    input [15:0] timer,
     output [3:0] ones,
     output [3:0] tens,
     output [3:0] hundreds,
@@ -35,18 +36,25 @@ module score_top_module (
     
     wire [13:0] current_score; 
     
-    score_tabulator (
+    score_tabulator mod_st(
         .clk(clk),
         .reaction_time(reaction_time),
 //        .game_mode(game_mode),
         .reset(reset),
-        .user_hit(user_hit)
+        .user_hit(user_hit),
+        .current_score(current_score)
         );
     
-    display_parser (
+    display_parser mod_dp(
         // get from game_fsm in menu.v
         .score(current_score),
-        .timer(timer)
+        .timer(timer),
+        .ones(ones),
+        .tens(tens),
+        .hundreds(hundreds),
+        .thousands(thousands),
+        .sec(sec),
+        .ten_sec(ten_sec)
         );
     
 endmodule

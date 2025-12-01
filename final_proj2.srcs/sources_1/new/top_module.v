@@ -37,15 +37,11 @@ wire [3:0] thousands;
 
 clock clock_inst(
     .clk(clk),
-    .rst(rst),
     .second(clk_en_1hz),
-    .adjust(clk_en_2hz),
-    .blink(clk_en_4hz),
     .display(clk_en_100hz),
     .ms_clock(clk_en_1kHz)
 );
 
-    
 input_processing mod2(
     .clk(clk), 
 	.btnU(btnU),
@@ -84,7 +80,7 @@ wire [3:0] ten_sec;
 wire[3:0] LED_on;
 
 random_number_generator mod5(
-    .clk(clk),
+    .clk(clk_en_1kHz),
     .rst(rst),
     // get from game_fsm
     .generate_num(generate_num),
@@ -97,16 +93,25 @@ game_controller mod6(
     .keypad(keypad),
     .sw(sw),
     .LED_2_disp(led_to_flash),
+    // INPUTS: Taking in the calculated digits
+    .ones_score(ones),
+    .tens_score(tens),
+    .hundreds_score(hundreds),
+    .thousands_score(thousands),
+    .seconds(sec),
+    .ten_seconds(ten_sec),
     .ones(ones), 
     .tens(tens), 
     .hundreds(hundreds), 
     .thousands(thousands),
     .sec(sec),
     .ten_sec(ten_sec),
-    .LED_on(LED_on)
+    .LED_on(LED_on),
+    .timer(timer)
     );
     
     wire [10:0] reaction_time;
+//    wire [15:0] timer;
     wire user_hit; // might need to add more logic later
     
 score_top_module mod7(
@@ -115,6 +120,7 @@ score_top_module mod7(
     .reset(rst),
     .user_hit(user_hit),
     .reaction_time(reaction_time),
+    .timer(timer),
     .ones(ones), 
     .tens(tens), 
     .hundreds(hundreds), 
