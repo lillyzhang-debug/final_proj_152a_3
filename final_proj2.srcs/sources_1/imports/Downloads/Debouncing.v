@@ -89,15 +89,18 @@ always @(posedge clk) begin
 	stable_btnC <= (deb_btnC == 2'b11) ? 1'b1 : (deb_btnC == 2'b00) ? 1'b0 : stable_btnC;
 	stable_btnD <= (deb_btnD == 2'b11) ? 1'b1 : (deb_btnD == 2'b00) ? 1'b0 : stable_btnD;
 end
-
+	
 reg prev_btnS, prev_btnA, prev_btnB, prev_btnC, prev_btnD;
 
+//make sure only one keypad input is accepted at a time
+wire multiple_keypad_pressed = (stable_btnA + stable_btnB + stable_btnC + stable_btnD) > 1;
+	
 //detect Button Pressed: 0 -> 1
 wire btnS_pressed_edge = stable_btnS && !prev_btnS; // start
-wire btnA_pressed_edge = stable_btnA && !prev_btnA; // A
-wire btnB_pressed_edge = stable_btnB && !prev_btnB; // B
-wire btnC_pressed_edge = stable_btnC && !prev_btnC; // C
-wire btnD_pressed_edge = stable_btnD && !prev_btnD; // D
+wire btnA_pressed_edge = stable_btnA && !prev_btnA && !multiple_keypad_pressed; // A
+wire btnB_pressed_edge = stable_btnB && !prev_btnB && !multiple_keypad_pressed; // B
+wire btnC_pressed_edge = stable_btnC && !prev_btnC && !multiple_keypad_pressed; // C
+wire btnD_pressed_edge = stable_btnD && !prev_btnD && !multiple_keypad_pressed; // D
 
 //assign button values
 always @(posedge clk) begin
