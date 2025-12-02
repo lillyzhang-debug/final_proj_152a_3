@@ -25,7 +25,7 @@ module score_top_module (
     input reset,
     input user_hit,
     input [10:0] reaction_time,
-    input [15:0] timer,
+    input [15:0] countdown,
     output [3:0] ones,
     output [3:0] tens,
     output [3:0] hundreds,
@@ -48,7 +48,7 @@ module score_top_module (
     display_parser mod_dp(
         // get from game_fsm in menu.v
         .score(current_score),
-        .timer(timer),
+        .countdown(countdown),
         .ones(ones),
         .tens(tens),
         .hundreds(hundreds),
@@ -76,7 +76,7 @@ module score_tabulator (
 
 always @(posedge clk) begin
     if (reset) begin
-        current_score <= 0;
+        current_score <= 4'b1000;
     end
     else if (user_hit) begin
         current_score <= current_score + (800 - reaction_time); // this is the additive score
@@ -86,10 +86,10 @@ end
 endmodule
  
  
-  // takes score reg AND timer and breaks it down for the display
+  // takes score reg AND countdown and breaks it down for the display
  module display_parser (
     input [13:0] score,
-    input [15:0] timer,
+    input [15:0] countdown,
     output [3:0] ones,
     output [3:0] tens,
     output [3:0] hundreds,
@@ -105,7 +105,7 @@ endmodule
     assign hundreds = (score/100) % 10;
     assign thousands = (score/1000) % 10;
     
-    assign seconds_timer = timer / 1000; // translate ms to s
+    assign seconds_timer = countdown / 1000; // translate ms to s
     assign sec = seconds_timer % 10; 
     assign ten_sec = (seconds_timer / 10) % 10;
     

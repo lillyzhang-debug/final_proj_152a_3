@@ -23,33 +23,39 @@ module game_controller (
     output [3:0] LED_on,
     output [10:8] LED_on_2, // for debug
     output [15:0] timer,
+    output [15:0] countdown,
     output generate_nums
+//    output started_debug
     );
     
     wire [1:0] game_mode;
-    wire generate_nums;
+//    wire generate_nums;
     wire [13:0] score;
 
-    wire [15:0] countdown;
+//    wire [15:0] countdown;
     
     wire playing;
+    wire started;
     wire user_hit;
     
     wire [10:0] response_diff;
+    
+//    assign started_debug = started;
  
  game_fsm mod_gfsm (
     .clk(ms_clock),
     .reset(start),
     .sw(sw),
-    .playing(playing),   
+    .playing(playing), 
+    .started(started),  
     .timer(timer),  
     .countdown(countdown),
     .game_mode(game_mode), 
     .generate_nums(generate_nums)
     );
 //need to parse countdown value into ones and tens and pass into display info
-sec = (countdown/100) % 10;
-ten_sec = (countdown/100) % 100;
+//assign sec = (countdown/1000) % 10;
+//assign ten_sec = (countdown/1000) % 100;
 
 led_controller mod_ledc (
     .clk(ms_clock),
@@ -74,7 +80,7 @@ display_info mode_di (
     .ten_seconds(ten_sec),
     // from game_fsm
     .game_mode(game_mode),
-    .playing(playing),
+    .started(started),
     // Outputs (To Physical Board Pins)
     .ones(ones),           // <--- Connected to top-level output
     .tens(tens),
@@ -82,7 +88,7 @@ display_info mode_di (
     .thousands(thousands)
     );
     
- endmodule
+endmodule
  
  // used to control the current state of the game
  // & perform any relevant setup tasks for each respective state
@@ -91,6 +97,7 @@ display_info mode_di (
     input reset,
     input [2:0] sw,
     output reg playing, // either actively playing the game (PLAYING) or not playing (IDLE/STARTUP) MAY NOT BE USED
+    output reg started,
     output reg [15:0] timer, // current timer status
     output reg [15:0] countdown, //current clock time
     output reg [1:0] game_mode, // may not be used?
@@ -105,8 +112,8 @@ display_info mode_di (
     localparam PLAYING = 2; // run game until duration ends, when duration ends, enter IDLE mode
     
     reg [2:0] current_state = IDLE;
-    reg [15:0] timer; // general purpose
-    reg [15:0] countdown;
+    // reg [15:0] timer; // general purpose
+//    reg [15:0] countdown;
     reg [15:0] duration;
     reg started;
     initial begin
@@ -121,22 +128,32 @@ display_info mode_di (
             // check sw to set game mode
             // if more than one sw is flipped, just flash final score and return mode to 0
             if (sw[0] == 1 && sw[1] == 0 && sw[2] == 0) begin
-                        duration <= 10000; // 10 s
-                        started <= 1;
-                    end
+                duration <= 10000; // 10 s
+                started <= 1;
+                current_state <= STARTUP; // transition to startup mode
+                countdown <= 3000;
+                game_mode <= 1;
+            end
             else if (sw[0] == 0 && sw[1] == 1 && sw[2] == 0) begin
                 duration <= 20000; // 20s
                 started <= 1;
+                current_state <= STARTUP; // transition to startup mode
+                countdown <= 3000;
+                game_mode <= 1;
             end
             else if (sw[0] == 0 && sw[1] == 0 && sw[2] == 1) begin
                 duration <= 30000; //30 s
                 started <= 1;
+                current_state <= STARTUP; // transition to startup mode
+                countdown <= 3000;
+                game_mode <= 1;
             end else begin
                 started <= 0;
+                current_state <= STARTUP; // transition to startup mode
+                countdown <= 3000;
+                game_mode <= 1;
             end
-            current_state <= STARTUP; // transition to startup mode
-            countdown <= 3000;
-            game_mode <= 1;
+            
         end else begin
             case (current_state) 
                 IDLE: begin 
@@ -210,7 +227,7 @@ module led_controller (
         end else if(game_mode == 2'b10) begin // game_mode == PLAYING == 2
             flash_timer <= flash_timer + 1;
             // if we've reached 2.5 s increment, flash a random LED and turn all others off no matter what
-            if (flash_timer  >= 800) begin
+            if (flash_timer  >= 1000) begin
                 // check which rand LED is to be flashed
                 // set it to on until the user presses or time runs out
                 flash_timer <= 0;
@@ -250,7 +267,7 @@ module display_info (
     input [3:0] ten_seconds,
     // game_mode -> what game state, playing -> are we actually playing the game now
     input [1:0] game_mode,
-    input playing,
+    input started,
     // use these in each mode to send value to display
     output reg [3:0] ones, 
     output reg [2:0] tens, 
@@ -267,7 +284,7 @@ module display_info (
                 thousands <= thousands_score;
             end
             1: begin // startup
-                if (playing) begin
+                if (started) begin
                     ones <= seconds;
                     tens <= ten_seconds;
                     hundreds <= 0;

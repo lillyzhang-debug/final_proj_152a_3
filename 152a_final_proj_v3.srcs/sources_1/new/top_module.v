@@ -11,13 +11,13 @@ module top_module(
     input btnC,
     input btnD,
     input [15:13] sw, //im not sure how many switches we are going to use
-    input  wire [7:4] JB, 
+    input  wire [7:0] JB, 
     // send to board
-    output wire JB3,
+//    output wire JB1,
     output [3:0] an,
     output [6:0] seg,
     output [7:0] led,
-    output [10:8] led_debug
+    output [15:8] led_debug
 );
 
 // all are clock enables!
@@ -57,7 +57,7 @@ clock clock_inst(
 // --- RESET LOGIC ---
 // FIX 1: Connect btnC DIRECTLY to reset. 
 // This bypasses the debouncer pulse which was too fast for the slow game clock.
-wire rst;
+//wire rst;
 assign rst = btnS; 
 
 
@@ -93,8 +93,8 @@ input_processing mod2(
 //assign rst = start_clean;
 
 keypad mod0(
-    .row(JB[7:4]),
-    .col4(JB3),
+    .row(JB[7:0]),
+    .col4(JB1),
     .btnA_raw(btnA_raw),
     .btnB_raw(btnB_raw),
     .btnC_raw(btnC_raw),
@@ -122,6 +122,9 @@ wire generate_num;
 wire [3:0] sec;
 wire [3:0] ten_sec;
 wire[3:0] LED_on;
+
+wire [15:0] timer;      // Carries the count-up timer
+wire [15:0] countdown;  // Carries the count-down timer (3000 -> 0)
 
 random_number_generator mod5(
     .clk(clk_en_1kHz),
@@ -152,21 +155,23 @@ game_controller mod6(
     .ten_sec(ten_sec),
     .LED_on(LED_on),
     .LED_on_2(led_debug), // for debug
+//    .started_debug(started_debug), // for debug
     .timer(timer),
-    .generate_nums(generate_nums)
+    .countdown(countdown),
+    .generate_nums(generate_num)
     );
     
     wire [10:0] reaction_time;
-//    wire [15:0] timer;
+//    wire [15:0] countdown;
     wire user_hit; // might need to add more logic later
     
 score_top_module mod7(
-    .clk(clk),
+    .clk(clk_en_1kHz),
 //    .game_mode(game_mode),
     .reset(rst),
     .user_hit(user_hit),
     .reaction_time(reaction_time),
-    .timer(timer),
+    .countdown(countdown),
     .ones(ones), 
     .tens(tens), 
     .hundreds(hundreds), 
@@ -180,4 +185,9 @@ score_top_module mod7(
     assign led[5] = sw13_clean;
     assign led[6] = sw14_clean;
     assign led[7] = sw15_clean;
+    assign led_debug[15] = btnA_clean;
+    assign led_debug[14] = btnB_clean;
+    assign led_debug[13] = btnC_clean;
+    assign led_debug[12] = btnD_clean;
+//    assign led_debug[11] = started_debug;
 endmodule
