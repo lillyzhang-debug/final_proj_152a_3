@@ -29,6 +29,8 @@ module game_controller (
     wire [1:0] game_mode;
     wire generate_nums;
     wire [13:0] score;
+
+    wire [15:0] countdown;
     
     wire playing;
     wire user_hit;
@@ -40,10 +42,12 @@ module game_controller (
     .reset(start),
     .sw(sw),
     .playing(playing),   
-    .timer(timer),   
+    .timer(timer),  
+    .countdown(countdown),
     .game_mode(game_mode), 
     .generate_nums(generate_nums)
     );
+//need to parse countdown value into ones and tens and pass into display info
 
 led_controller mod_ledc (
     .clk(ms_clock),
@@ -86,6 +90,7 @@ display_info mode_di (
     input [2:0] sw,
     output reg playing, // either actively playing the game (PLAYING) or not playing (IDLE/STARTUP) MAY NOT BE USED
     output reg [15:0] timer, // current timer status
+    output reg [15:0] countdown, //current clock time
     output reg [1:0] game_mode, // may not be used?
     output reg generate_nums
     );
@@ -136,8 +141,8 @@ display_info mode_di (
                     generate_nums <= 0;
                     game_mode <= 0;
                     timer <= 0;
-                    
                  end
+                
                  STARTUP: begin
                     playing <= 0;
                     generate_nums <= 0;
@@ -147,12 +152,14 @@ display_info mode_di (
                         if (started == 1) begin
                             current_state <= PLAYING; // only transition to PLAYING if started is correctly set
                             game_mode <= 2;
+                            countdown <= duration; //begin the countdown at max time
                         end else begin
                             current_state <= IDLE;
                             game_mode <= 0;
                         end
                     end
                  end
+                
                  PLAYING: begin
                     playing <= 1;
                     generate_nums <= 1;
@@ -165,6 +172,7 @@ display_info mode_di (
                         started <= 0; // reset
                     end
                 end
+                
             endcase       
         end
      end
