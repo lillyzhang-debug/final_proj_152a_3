@@ -48,6 +48,8 @@ module game_controller (
     .generate_nums(generate_nums)
     );
 //need to parse countdown value into ones and tens and pass into display info
+sec = (countdown/100) % 10;
+ten_sec = (countdown/100) % 100;
 
 led_controller mod_ledc (
     .clk(ms_clock),
@@ -133,6 +135,7 @@ display_info mode_di (
                 started <= 0;
             end
             current_state <= STARTUP; // transition to startup mode
+            countdown <= 3000;
             game_mode <= 1;
         end else begin
             case (current_state) 
@@ -147,6 +150,7 @@ display_info mode_di (
                     playing <= 0;
                     generate_nums <= 0;
                     timer <= timer + 1;
+                    countdown <= countdown - 1;
                     if (timer >= 3000) begin
                         timer <= 0;
                         if (started == 1) begin
