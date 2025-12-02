@@ -63,7 +63,7 @@ assign rst = btnS;
 
 input_processing mod2(
     .clk(clk), 
-	.btnS(1'b0), // wired rst directly CHANGE BACK TO btnS when done
+	.btnS(1'b0), // wired rst directly 
     .btnA(btnA_raw),
     .btnB(btnB_raw), 
     .btnC(btnC_raw),
@@ -76,7 +76,7 @@ input_processing mod2(
 	.sw15(sw15_clean),
 	.sw14(sw14_clean),
 	.sw13(sw13_clean),
-	.start() //unused for now? CHANGE BACK TO RST WHEN DONW
+	.start() //unused for now?
 );
 
 // 4. THE ENCODER (Converts 4 buttons -> 2-bit Index)
