@@ -26,12 +26,12 @@ always @(posedge clk) begin
         sync_sw15 <= 2'b00;
         sync_sw14 <= 2'b00;
 	
-        sync_btnU <= 2'b00;
+//        sync_btnU <= 2'b00;
         sync_btnA <= 2'b00;
-	sync_btnB <= 2'b00;
-	sync_btnC <= 2'b00;
-	sync_btnD <= 2'b00;
-
+        sync_btnB <= 2'b00;
+        sync_btnC <= 2'b00;
+        sync_btnD <= 2'b00;
+        
     end else begin //two flip flops 
 
         sync_sw15[0] <= sw[15];
@@ -58,6 +58,7 @@ always @(posedge clk) begin
 
 	sync_btnD[0] <= btnD;
     sync_btnD[1] <= sync_btnD[0];
+    end
 end   
 
 //debouncing make sure it has been 'on' for two samples (2ms)
@@ -68,8 +69,6 @@ reg stable_sw15, stable_sw14, stable_sw13;
 reg stable_btnS, stable_btnA, stable_btnB, stable_btnC, stable_btnD;
 
 always @(posedge clk) begin
-<<<<<<< HEAD
-
     if (start == 1'b1) begin
         deb_sw15 <= 2'b00;
         deb_sw14 <= 2'b00;
@@ -84,10 +83,6 @@ always @(posedge clk) begin
 
         deb_sw15[0] <= deb_sw15[1];
         deb_sw15[1] <= deb_sw15[0];
-=======
-    deb_sw15[0] <= deb_sw15[1];
-    deb_sw15[1] <= deb_sw15[0];
->>>>>>> origin/input-processing-stuff
     
     deb_sw14[0] <= deb_sw14[1];
     deb_sw14[1] <= deb_sw14[0];
@@ -119,6 +114,7 @@ always @(posedge clk) begin
 	stable_btnB <= (deb_btnB == 2'b11) ? 1'b1 : (deb_btnB == 2'b00) ? 1'b0 : stable_btnB;
 	stable_btnC <= (deb_btnC == 2'b11) ? 1'b1 : (deb_btnC == 2'b00) ? 1'b0 : stable_btnC;
 	stable_btnD <= (deb_btnD == 2'b11) ? 1'b1 : (deb_btnD == 2'b00) ? 1'b0 : stable_btnD;
+	end
 end
 	
 reg prev_btnS, prev_btnA, prev_btnB, prev_btnC, prev_btnD;

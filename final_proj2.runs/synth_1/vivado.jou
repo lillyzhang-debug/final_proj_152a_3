@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Mon Dec  1 15:42:15 2025
-# Process ID         : 46848
+# Start of session at: Mon Dec  1 19:34:49 2025
+# Process ID         : 56500
 # Current directory  : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/synth_1
 # Command line       : vivado.exe -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
 # Log file           : C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.runs/synth_1/top_module.vds
@@ -19,6 +19,6 @@
 # Host memory        : 33412 MB
 # Swap memory        : 23622 MB
 # Total Virtual      : 57035 MB
-# Available Virtual  : 20600 MB
+# Available Virtual  : 13605 MB
 #-----------------------------------------------------------
 source top_module.tcl -notrace

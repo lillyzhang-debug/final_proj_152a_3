@@ -81,6 +81,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/menu.v
   C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/score_tabulator.v
   C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/top_module.v
+  C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/keypad.v
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

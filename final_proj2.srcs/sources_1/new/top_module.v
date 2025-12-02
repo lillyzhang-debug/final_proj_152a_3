@@ -11,7 +11,9 @@ module top_module(
     input btnC,
     input btnD,
     input [15:13] sw, //im not sure how many switches we are going to use
+    input  wire [7:4] JB, 
     // send to board
+    output wire JB3,
     output [3:0] an,
     output [6:0] seg,
     output [3:0] led
@@ -35,6 +37,13 @@ wire [3:0] tens;
 wire [3:0] hundreds;
 wire [3:0] thousands;
 
+// for keypad
+wire btnA_raw, btnB_raw, btnC_raw, btnD_raw;
+
+// for debouncing
+wire sw15_clean, sw14_clean, sw13_clean;
+wire start_clean; // Use this for reset
+
 clock clock_inst(
     .clk(clk),
     .second(clk_en_1hz),
@@ -44,21 +53,33 @@ clock clock_inst(
 
 input_processing mod2(
     .clk(clk), 
-	.btnU(btnU),
+	.btnS(btnS),
     .btnA(btnA),
     .btnB(btnB), 
     .btnC(btnC),
     .btnD(btnD),
 	.sw(sw),
-	.a(),
-	.b(),
-	.c(),
-	.d(),
-	.sw15(),
-	.sw14(),
-	.sw13(),
-	.start(rst)
+	.a(btnA_raw),
+	.b(btnB_raw),
+	.c(btnC_raw),
+	.d(btnD_raw),
+	.sw15(sw15_clean),
+	.sw14(sw14_clean),
+	.sw13(sw13_clean),
+	.start(start_clean)
 );
+
+assign rst = start_clean;
+
+keypad mod0(
+    .row(JB[7:4]),
+    .col4(JB3),
+    .btnA_raw(btnA_raw),
+    .btnB_raw(btnB_raw),
+    .btnC_raw(btnC_raw),
+    .btnD_raw(btnD_raw)
+);
+
 
 display mod4(
     .clk(clk),
@@ -91,7 +112,7 @@ game_controller mod6(
     .ms_clock(clk_en_1kHz),
     .start(rst),
     .keypad(keypad),
-    .sw(sw),
+    .sw({sw15_clean, sw14_clean, sw13_clean}),
     .LED_2_disp(led_to_flash),
     // INPUTS: Taking in the calculated digits
     .ones_score(ones),

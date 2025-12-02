@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.sim/sim_2/synth/func/xsim/score_tab_tb_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock
+INFO: [VRFC 10-311] analyzing module display
+INFO: [VRFC 10-311] analyzing module input_processing
+INFO: [VRFC 10-311] analyzing module top_module
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sim_2/new/game_fsm_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_fsm_tb

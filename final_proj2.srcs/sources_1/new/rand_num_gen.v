@@ -39,7 +39,7 @@ always @(posedge clk) begin
         rand_num <= seed_val;
     end
     
-    if (generate_num) begin
+    else (generate_num) begin
         // shift bits left and insert feedback at LSB
         rand_num[6] <= {rand_num[6:0], feedback};
         led_to_flash = rand_num % 4; // we only have 4 LEDs to choose between

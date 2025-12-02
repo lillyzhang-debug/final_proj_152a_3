@@ -111,16 +111,18 @@ display_info mode_di (
                         duration <= 10000; // 10 s
                         started <= 1;
                     end
-                    if (sw[0] == 0 && sw[1] == 1 && sw[2] == 0) begin
-                        duration <= 20000; // 20s
-                        started <= 1;
-                    end
-                    if (sw[0] == 0 && sw[1] == 1 && sw[2] == 0) begin
-                        duration <= 30000; //30 s
-                        started <= 1;
-                    end
-                    current_state <= STARTUP; // transition to startup mode
-                    game_mode <= 1;
+            else if (sw[0] == 0 && sw[1] == 1 && sw[2] == 0) begin
+                duration <= 20000; // 20s
+                started <= 1;
+            end
+            else if (sw[0] == 0 && sw[1] == 0 && sw[2] == 1) begin
+                duration <= 30000; //30 s
+                started <= 1;
+            end else begin
+                started <= 0;
+            end
+            current_state <= STARTUP; // transition to startup mode
+            game_mode <= 1;
         end else begin
             case (current_state) 
                 IDLE: begin 

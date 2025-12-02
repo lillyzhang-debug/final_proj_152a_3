@@ -1795,3 +1795,51 @@ setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "ls", true); // h.b (RD
 // Tcl Message: ls 
 // Tcl Message: final_proj2.cache final_proj2.gen final_proj2.hw final_proj2.ip_user_files final_proj2.runs final_proj2.sim final_proj2.srcs final_proj2.xpr upgrade_project_migration_report.log vivado.jou vivado.log vivado_pid32668.str 
 // Tcl (Dont Echo) Command: 'rdi::info_commands {cd*}'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git add .", true); // h.b (RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE)
+// Tcl Command: 'git add .'
+// Tcl Message: git add . 
+// Tcl Message: warning: in the working copy of 'vivado.jou', LF will be replaced by CRLF the next time Git touches it warning: in the working copy of 'vivado.log', LF will be replaced by CRLF the next time Git touches it 
+// Tcl (Dont Echo) Command: 'rdi::match_options {git} {}'
+// Elapsed time: 13 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git commit -m \"fixed merge commit\"", true); // h.b (RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE)
+// Tcl Command: 'git commit -m "fixed merge commit"'
+// Tcl Message: git commit -m "fixed merge commit" 
+// Tcl Message: [main 80f8fed] fixed merge commit 
+selectTab((HResource) null, (HResource) null, "Sources", 0); // ab
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog, xil_defaultlib, top_module.v]", 9, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog, xil_defaultlib, score_tabulator.v]", 8, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation-Only Sources]", 16, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Utility Sources, utils_1]", 15); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Utility Sources, utils_1, Design Checkpoint, score_top_module.dcp]", 17, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Utility Sources, utils_1, Design Checkpoint, score_top_module.dcp]", 17, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectButton(PAResourceOtoP.OpenFileAction_CANCEL, "Cancel", "Unable to Open File"); // f (PAResourceOtoP.OpenFileAction_CANCEL)
+dismissDialog("Unable to Open File"); // R.a (dialog64)
+// Elapsed time: 15 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git merge origin/input-processing-stuff", true); // h.b (RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE)
+// Tcl Command: 'git merge origin/input-processing-stuff'
+// Tcl Message: git merge origin/input-processing-stuff 
+// Tcl Message: Already up to date. 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog, xil_defaultlib, top_module.v]", 9, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog, xil_defaultlib, display.v]", 5, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // C (PAResourceCommand.PACommandNames_ADD_SOURCES, Sources_add_sources)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN, "Add or create design sources"); // a (PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN)
+selectButton("NEXT", "Next", "Add Sources"); // JButton (NEXT)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files", "Add Sources"); // a (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT)
+// Elapsed time: 24 seconds
+setFileChooser("C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/keypad.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files", "Add Sources"); // a (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT)
+// Elapsed time: 30 seconds
+setFileChooser("C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads/Debouncing.v");
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 2 ; Debouncing.v ; xil_defaultlib ; C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/imports/Downloads", 1, "Debouncing.v", 2); // aN (PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE)
+selectButton(RDIResource.AbstractCombinedPanel_REMOVE_SELECTED_ELEMENTS, "Remove", "Add Sources"); // C (RDIResource.AbstractCombinedPanel_REMOVE_SELECTED_ELEMENTS, Remove)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files", "Add Sources"); // a (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files", "Add Sources"); // a (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT)
+dismissFileChooser();
+selectButton("FINISH", "Finish", "Add Sources"); // JButton (FINISH)
+// 'f' command handler elapsed time: 68 seconds
+dismissDialog("Add Sources"); // c (dialog65)
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/keypad.v 
+selectCodeEditor("Debouncing.v", 272, 180); // ae (Debouncing.v)
+selectCodeEditor("Debouncing.v", 89, 170); // ae (Debouncing.v)

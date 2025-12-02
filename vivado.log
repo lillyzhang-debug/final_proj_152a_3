@@ -1533,3 +1533,16 @@ vivado.log
 vivado_pid32668.str
 git add .
 WARNING: [Common 17-259] Unknown Tcl command 'git add .' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+warning: in the working copy of 'vivado.jou', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vivado.log', LF will be replaced by CRLF the next time Git touches it
+git commit -m "fixed merge commit"
+WARNING: [Common 17-259] Unknown Tcl command 'git commit -m fixed merge commit' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+[main 80f8fed] fixed merge commit
+git merge origin/input-processing-stuff
+WARNING: [Common 17-259] Unknown Tcl command 'git merge origin/input-processing-stuff' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+Already up to date.
+add_files -norecurse C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3/final_proj2.srcs/sources_1/new/keypad.v
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+git add .
+WARNING: [Common 17-259] Unknown Tcl command 'git add .' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
