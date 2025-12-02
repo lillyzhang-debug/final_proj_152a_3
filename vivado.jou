@@ -134,3 +134,4 @@ git merge origin/input-processing-stuff
 git add Debouncing.v
 pwd
 ls
+git add .

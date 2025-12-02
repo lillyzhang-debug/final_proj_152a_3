@@ -1789,3 +1789,9 @@ setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "pwd", true); // h.b (R
 // Tcl Command: 'pwd'
 // Tcl Message: pwd 
 // Tcl Message: C:/Users/lilly/.Xilinx/projects/152a_final_v2/final_proj_152a_3 
+// Tcl (Dont Echo) Command: 'rdi::info_commands {ls*}'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "ls", true); // h.b (RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE)
+// Tcl Command: 'ls'
+// Tcl Message: ls 
+// Tcl Message: final_proj2.cache final_proj2.gen final_proj2.hw final_proj2.ip_user_files final_proj2.runs final_proj2.sim final_proj2.srcs final_proj2.xpr upgrade_project_migration_report.log vivado.jou vivado.log vivado_pid32668.str 
+// Tcl (Dont Echo) Command: 'rdi::info_commands {cd*}'
