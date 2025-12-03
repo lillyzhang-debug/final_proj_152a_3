@@ -11,14 +11,22 @@ module top_module(
     input btnC,
     input btnD,
     input [15:13] sw, //im not sure how many switches we are going to use
-    input  wire [7:1] JB, 
+    input wire [3:0] rows, // take all 4 rows 
     // send to board
-    output wire JB1,
+    output wire [3:0] cols,
     output [3:0] an,
     output [6:0] seg,
     output [7:0] led,
     output [15:8] led_debug
 );
+
+// --- KEYPAD CONNECTION ---
+// We only want to read Column 4 (Buttons A, B, C, D)
+// Drive Column 4 LOW (Active). Drive others HIGH (Inactive).
+assign cols[0] = 1'b0; // Active Low
+assign cols[3:1] = 3'b111; // Disable other columns
+//assign cols = 4'b0000;
+
 
 // all are clock enables!
 wire clk_en_1kHz;
@@ -56,6 +64,10 @@ wire sw15_clean, sw14_clean, sw13_clean;
 wire btnD_clean, btnC_clean, btnB_clean, btnA_clean;
 wire start_clean; // Use this for reset
 
+wire [10:0] reaction_time;
+//    wire [15:0] countdown;
+wire user_hit; // might need to add more logic later
+
 clock clock_inst(
     .clk(clk),
     .second(clk_en_1hz),
@@ -65,9 +77,8 @@ clock clock_inst(
 );
 
 // --- RESET LOGIC ---
-// FIX 1: Connect btnC DIRECTLY to reset. 
+// Connect btnC DIRECTLY to reset. 
 // This bypasses the debouncer pulse which was too fast for the slow game clock.
-//wire rst;
 assign rst = btnS; 
 
 
@@ -103,8 +114,9 @@ input_processing mod2(
 //assign rst = start_clean;
 
 keypad mod0(
-    .row(JB[7:1]),
-    .col4(JB1),
+    .clk(clk),
+    .row(rows),
+    .col4(cols[0]),
     .btnA_raw(btnA_raw),
     .btnB_raw(btnB_raw),
     .btnC_raw(btnC_raw),
@@ -136,6 +148,7 @@ wire[3:0] LED_on;
 wire [15:0] timer;      // Carries the count-up timer
 wire [15:0] countdown;  // Carries the count-down timer (3000 -> 0)
 
+
 random_number_generator mod5(
     .clk(clk_en_1kHz),
     .rst(rst),
@@ -147,7 +160,8 @@ random_number_generator mod5(
 game_controller mod6(
     .ms_clock(clk_en_1kHz),
     .start(rst),
-    .keypad({btnD_clean, btnC_clean, btnB_clean, btnA_clean}),
+//    .keypad({btnD_clean, btnC_clean, btnB_clean, btnA_clean}),
+    .keypad({btnD_raw, btnC_raw, btnB_raw, btnA_raw}),
     .sw({sw15_clean, sw14_clean, sw13_clean}),
     .LED_2_disp(led_to_flash),
     // INPUTS: Taking in the calculated digits
@@ -168,15 +182,17 @@ game_controller mod6(
 //    .started_debug(started_debug), // for debug
     .timer(timer),
     .countdown(countdown),
-    .generate_nums(generate_num)
+    .generate_nums(generate_num),
+    .user_hit_out(user_hit),       // Controller -> Wire
+    .reaction_time_out(reaction_time) // Controller -> Wire
     );
     
-    wire [10:0] reaction_time;
-//    wire [15:0] countdown;
-    wire user_hit; // might need to add more logic later
+    
     
 //    assign sec = (countdown / 1000) % 10;
 //    assign ten_sec = 0; // (Countdown is usually single digit, 3..2..1)
+
+//assign score_ones = 5;
     
 score_top_module mod7(
     .clk(clk_en_1kHz),
@@ -198,10 +214,17 @@ score_top_module mod7(
     assign led[5] = sw13_clean;
     assign led[6] = sw14_clean;
     assign led[7] = sw15_clean;
-    assign led_debug[15:11] = countdown[7:3];
-//    assign led_debug[15] = btnA_clean;
-//    assign led_debug[14] = btnB_clean;
-//    assign led_debug[13] = btnC_clean;
-//    assign led_debug[12] = btnD_clean;
-//    assign led_debug[11] = started_debug;
+//    assign led_debug[15:11] = countdown[7:3];
+    assign led_debug[12] = btnA_raw;
+    assign led_debug[13] = btnB_raw;
+    assign led_debug[14] = btnC_raw;
+    assign led_debug[15] = btnD_raw;
+// 2. Bypass Keypad Module Logic completely
+    // Read the rows directly to the LEDs.
+    // (Active Low: If row is 0, LED turns ON)
+//    assign led_debug[15] = ~rows[0]; // Top Row (D)
+//    assign led_debug[14] = ~rows[1];
+//    assign led_debug[13] = ~rows[2];
+//    assign led_debug[12] = ~rows[3]; // Bottom Row (A)
+    assign led_debug[11] = user_hit;
 endmodule

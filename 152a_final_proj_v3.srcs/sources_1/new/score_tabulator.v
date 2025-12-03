@@ -76,7 +76,7 @@ module score_tabulator (
 
 always @(posedge clk) begin
     if (reset) begin
-        current_score <= 4'b1111;
+        current_score <= 14'd0;
     end
     else if (user_hit) begin
         current_score <= current_score + (800 - reaction_time); // this is the additive score

@@ -24,7 +24,9 @@ module game_controller (
     output [10:8] LED_on_2, // for debug
     output [15:0] timer,
     output [15:0] countdown,
-    output generate_nums
+    output generate_nums,
+    output user_hit_out,          // Export Hit Event
+    output [10:0] reaction_time_out // Export Reaction Time
 //    output started_debug
     );
     
@@ -36,7 +38,7 @@ module game_controller (
     
     wire playing;
     wire started;
-    wire user_hit;
+    wire user_hit_w;
     
     wire [10:0] response_diff;
     
@@ -68,14 +70,19 @@ led_controller mod_ledc (
     .diff(response_diff),      // <--- Captured in wire (send to score tabulator later)
     .user_hit(user_hit_w)      // <--- Captured in wire
     );
+    
+    // --- CRITICAL MISSING LINK ---
+    // You must assign the internal wire to the output port!
+    assign user_hit_out = user_hit_w;
+    assign reaction_time_out = response_diff;
    
 display_info mode_di (
     .clk(ms_clock),
     // from display_parser in score_tabulator.v
-    .ones_score(ones),
-    .tens_score(tens),
-    .hundreds_score(hundreds),
-    .thousands_score(thousands),
+    .ones_score(ones_score),
+    .tens_score(tens_score),
+    .hundreds_score(hundreds_score),
+    .thousands_score(thousands_score),
     .seconds(seconds),
     .ten_seconds(ten_seconds),
     // from game_fsm
@@ -115,7 +122,7 @@ endmodule
     // reg [15:0] timer; // general purpose
 //    reg [15:0] countdown;
     reg [15:0] duration;
-    reg started;
+//    reg started;
     initial begin
         started = 0; // mark started if the correct game mode input is given
     end
