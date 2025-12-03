@@ -85,27 +85,27 @@ input_processing mod1(
 
 //doesnt passing in {btnD_clean, btnC_clean, btnB_clean, btnA_clean} already do this?
 // 4. THE ENCODER (Converts 4 buttons -> 2-bit Index)
-	reg [1:0] keypad_encoded;
-    always @(*) begin
-        if (btnA_clean)      keypad_encoded = 2'b00; // Matches RNG '0'
-        else if (btnB_clean) keypad_encoded = 2'b01; // Matches RNG '1'
-        else if (btnC_clean) keypad_encoded = 2'b10; // Matches RNG '2'
-        else if (btnD_clean) keypad_encoded = 2'b11; // Matches RNG '3'
-        else                 keypad_encoded = 2'b00; 
-    end 
+//	reg [1:0] keypad_encoded;
+//    always @(*) begin
+//        if (btnA_clean)      keypad_encoded = 2'b00; // Matches RNG '0'
+//        else if (btnB_clean) keypad_encoded = 2'b01; // Matches RNG '1'
+//        else if (btnC_clean) keypad_encoded = 2'b10; // Matches RNG '2'
+//        else if (btnD_clean) keypad_encoded = 2'b11; // Matches RNG '3'
+//        else                 keypad_encoded = 2'b00; 
+//    end 
 
 //assign rst = start_clean;
 
-wire playing;
+//wire playing;
 
 wire [1:0] led_to_flash;
 wire generate_num;
-wire [3:0] sec;
-wire [3:0] ten_sec;
-wire[3:0] LED_on;
+//wire [3:0] sec;
+//wire [3:0] ten_sec;
+//wire[3:0] LED_on;
 
-wire [15:0] timer;      // Carries the count-up timer
-wire [15:0] countdown;  // Carries the count-down timer (3000 -> 0)
+//wire [15:0] timer;      // Carries the count-up timer
+//wire [15:0] countdown;  // Carries the count-down timer (3000 -> 0)
 
 wire [7:0] rand_num;
 	
@@ -124,52 +124,17 @@ game_controller mod3(
     .keypad({btnD_clean, btnC_clean, btnB_clean, btnA_clean}),
     .sw({sw15_clean, sw14_clean, sw13_clean}),
     .LED_2_disp(led_to_flash),
-    // INPUTS: Taking in the calculated digits
-    .ones_score(ones),
-    .tens_score(tens),
-    .hundreds_score(hundreds),
-    .thousands_score(thousands),
-    .seconds(sec),
-    .ten_seconds(ten_sec),
 	// OUTPUTS
     .ones(ones), 
     .tens(tens), 
     .hundreds(hundreds), 
     .thousands(thousands),
-    .sec(sec),
-    .ten_sec(ten_sec),
-    .LED_on(LED_on),
+	.LED_on(led[3:0]),
     .LED_on_2(led_debug), // for debug
 //  .started_debug(started_debug), // for debug
-    .timer(timer),
-    .countdown(countdown),
-    .generate_nums(generate_num)
     );
-    
-    wire [10:0] reaction_time;
-//  wire [15:0] countdown;
-    wire user_hit; // might need to add more logic later
-?
-//i feel like this should be called inside of game_controller? since so many of its inputs 
-//are from that module, and that way it can input the score directly into the display info
-//and that way there is only one ouput for ones, tens, hundreds, thousands 
-//seems like it might be an issue that this module and game_controller both output those values
-score_top_module mod4(
-    .clk(clk_en_1kHz),
-//  .game_mode(game_mode),
-    .reset(rst),
-    .user_hit(user_hit),
-    .reaction_time(reaction_time),
-    .countdown(countdown),
-    .ones(ones), 
-    .tens(tens), 
-    .hundreds(hundreds), 
-    .thousands(thousands),
-    .sec(sec),
-    .ten_sec(ten_sec)
-);
 
-display mod5(
+display mod4(
     .clk(clk),
     .rst(rst),
     .adj(playing),
@@ -179,11 +144,12 @@ display mod5(
 	.tens(tens), 
 	.hundreds(hundreds), 
 	.thousands(thousands),
+	//OUTPUTS
 	.seg(seg),
 	.an(an)
 );
 
-    assign led[3:0] = LED_on;
+    //assign led[3:0] = LED_on;
     assign led[4] = btnS;
     assign led[5] = sw13_clean;
     assign led[6] = sw14_clean;
