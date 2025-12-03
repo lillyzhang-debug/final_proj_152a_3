@@ -76,8 +76,8 @@ display_info mode_di (
     .tens_score(tens),
     .hundreds_score(hundreds),
     .thousands_score(thousands),
-    .seconds(sec),
-    .ten_seconds(ten_sec),
+    .seconds(seconds),
+    .ten_seconds(ten_seconds),
     // from game_fsm
     .game_mode(game_mode),
     .started(started),
@@ -284,17 +284,17 @@ module display_info (
                 thousands <= thousands_score;
             end
             1: begin // startup
-                if (started) begin
+//                if (started) begin
                     ones <= seconds;
                     tens <= ten_seconds;
                     hundreds <= 0;
                     thousands <= 0;
-                end else begin
-                    ones <= ones_score;
-                    tens <= tens_score;
-                    hundreds <= hundreds_score;
-                    thousands <= thousands_score;
-               end
+//                end else begin
+//                    ones <= ones_score;
+//                    tens <= tens_score;
+//                    hundreds <= hundreds_score;
+//                    thousands <= thousands_score;
+//               end
              end
              2: begin // game
                  ones <= seconds;

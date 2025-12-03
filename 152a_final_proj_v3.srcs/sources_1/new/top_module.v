@@ -11,9 +11,9 @@ module top_module(
     input btnC,
     input btnD,
     input [15:13] sw, //im not sure how many switches we are going to use
-    input  wire [7:0] JB, 
+    input  wire [7:1] JB, 
     // send to board
-//    output wire JB1,
+    output wire JB1,
     output [3:0] an,
     output [6:0] seg,
     output [7:0] led,
@@ -33,10 +33,20 @@ wire rst;
 wire [3:0] keypad;
 
 // display digits
-wire [3:0] ones;
-wire [3:0] tens;
-wire [3:0] hundreds;
-wire [3:0] thousands;
+//wire [3:0] ones;
+//wire [3:0] tens;
+//wire [3:0] hundreds;
+//wire [3:0] thousands;
+
+// --- CRITICAL WIRES FOR DATA PATH ---
+// These carry the FINAL digits to the display
+wire [3:0] disp_ones, disp_tens, disp_hundreds, disp_thousands;
+
+// These carry the RAW SCORE from the Tabulator to the Controller
+wire [3:0] score_ones, score_tens, score_hundreds, score_thousands;
+
+// These carry the RAW TIME from the Tabulator to the Controller
+wire [3:0] time_ones, time_tens;
 
 // for keypad
 wire btnA_raw, btnB_raw, btnC_raw, btnD_raw;
@@ -93,7 +103,7 @@ input_processing mod2(
 //assign rst = start_clean;
 
 keypad mod0(
-    .row(JB[7:0]),
+    .row(JB[7:1]),
     .col4(JB1),
     .btnA_raw(btnA_raw),
     .btnB_raw(btnB_raw),
@@ -109,10 +119,10 @@ display mod4(
     .adj(playing),
     .clk_refresh(clk_en_100hz),	
 	.clk_blink(clk_en_4hz),
-	.ones(ones), 
-	.tens(tens), 
-	.hundreds(hundreds), 
-	.thousands(thousands),
+	.ones(disp_ones), 
+	.tens(disp_tens), 
+	.hundreds(disp_hundreds), 
+	.thousands(disp_thousands),
 	.seg(seg),
 	.an(an)
 );
@@ -141,20 +151,20 @@ game_controller mod6(
     .sw({sw15_clean, sw14_clean, sw13_clean}),
     .LED_2_disp(led_to_flash),
     // INPUTS: Taking in the calculated digits
-    .ones_score(ones),
-    .tens_score(tens),
-    .hundreds_score(hundreds),
-    .thousands_score(thousands),
-    .seconds(sec),
-    .ten_seconds(ten_sec),
-    .ones(ones), 
-    .tens(tens), 
-    .hundreds(hundreds), 
-    .thousands(thousands),
+    .ones_score(score_ones),
+    .tens_score(score_tens),
+    .hundreds_score(score_hundreds),
+    .thousands_score(score_thousands),
+    .seconds(time_ones),
+    .ten_seconds(time_tens),
+    .ones(disp_ones), 
+    .tens(disp_tens), 
+    .hundreds(disp_hundreds), 
+    .thousands(disp_thousands),
     .sec(sec),
     .ten_sec(ten_sec),
     .LED_on(LED_on),
-    .LED_on_2(led_debug), // for debug
+    .LED_on_2(led_debug[10:8]), // for debug
 //    .started_debug(started_debug), // for debug
     .timer(timer),
     .countdown(countdown),
@@ -165,6 +175,9 @@ game_controller mod6(
 //    wire [15:0] countdown;
     wire user_hit; // might need to add more logic later
     
+//    assign sec = (countdown / 1000) % 10;
+//    assign ten_sec = 0; // (Countdown is usually single digit, 3..2..1)
+    
 score_top_module mod7(
     .clk(clk_en_1kHz),
 //    .game_mode(game_mode),
@@ -172,12 +185,12 @@ score_top_module mod7(
     .user_hit(user_hit),
     .reaction_time(reaction_time),
     .countdown(countdown),
-    .ones(ones), 
-    .tens(tens), 
-    .hundreds(hundreds), 
-    .thousands(thousands),
-    .sec(sec),
-    .ten_sec(ten_sec)
+    .ones(score_ones), 
+    .tens(score_tens), 
+    .hundreds(score_hundreds), 
+    .thousands(score_thousands),
+    .sec(time_ones),
+    .ten_sec(time_tens)
     );
 
     assign led[3:0] = LED_on;
@@ -185,9 +198,10 @@ score_top_module mod7(
     assign led[5] = sw13_clean;
     assign led[6] = sw14_clean;
     assign led[7] = sw15_clean;
-    assign led_debug[15] = btnA_clean;
-    assign led_debug[14] = btnB_clean;
-    assign led_debug[13] = btnC_clean;
-    assign led_debug[12] = btnD_clean;
+    assign led_debug[15:11] = countdown[7:3];
+//    assign led_debug[15] = btnA_clean;
+//    assign led_debug[14] = btnB_clean;
+//    assign led_debug[13] = btnC_clean;
+//    assign led_debug[12] = btnD_clean;
 //    assign led_debug[11] = started_debug;
 endmodule
