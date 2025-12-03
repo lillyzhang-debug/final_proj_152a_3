@@ -57,6 +57,7 @@ clock clock_inst(
 assign rst = btnS; 
 
 keypad mod0(
+	.clk(clk),
 	.row(JB[7:4]),
 	.col4(JB3),
     .btnA_raw(btnA_raw),
