@@ -9,7 +9,7 @@ module top_module(
 	input [15:13] sw, //switches for time
 	input  wire [7:0] JB, //keypad buttons
     // send to board
-	// output wire JB1,
+	output wire JB3,
     output [3:0] an,
     output [6:0] seg,
     output [7:0] led,
@@ -58,7 +58,7 @@ assign rst = btnS;
 
 keypad mod0(
 	.row(JB[7:4]),
-	.col4(JB[3]),
+	.col4(JB3),
     .btnA_raw(btnA_raw),
     .btnB_raw(btnB_raw),
     .btnC_raw(btnC_raw),
