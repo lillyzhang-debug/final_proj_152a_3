@@ -78,6 +78,7 @@ led_controller mod_ledc (
    
 display_info mode_di (
     .clk(ms_clock),
+    .sw(sw),
     // from display_parser in score_tabulator.v
     .ones_score(ones_score),
     .tens_score(tens_score),
@@ -128,7 +129,7 @@ endmodule
     end
     
     always @(posedge clk or posedge reset) begin
-        if (reset) begin// whenever we hit the reset button, attempt to start the game NOTE THIS MAY FUNCTION INCORRECTLY
+        if (reset) begin// whenever we hit the reset button, attempt to start the game 
             playing <= 0;
             timer <= 0;
             started <= 0;
@@ -264,6 +265,7 @@ endmodule
 
 module display_info (
     input clk,
+    input [2:0] sw,
     // input final score
     input [3:0] ones_score,
     input [3:0] tens_score,
@@ -291,17 +293,17 @@ module display_info (
                 thousands <= thousands_score;
             end
             1: begin // startup
-//                if (started) begin
+                if (started) begin
                     ones <= seconds;
                     tens <= ten_seconds;
                     hundreds <= 0;
                     thousands <= 0;
-//                end else begin
-//                    ones <= ones_score;
-//                    tens <= tens_score;
-//                    hundreds <= hundreds_score;
-//                    thousands <= thousands_score;
-//               end
+                end else begin
+                    ones <= ones_score;
+                    tens <= tens_score;
+                    hundreds <= hundreds_score;
+                    thousands <= thousands_score;
+               end
              end
              2: begin // game
                  ones <= seconds;
@@ -309,8 +311,10 @@ module display_info (
                  hundreds <= 0;
                  thousands <= 0;
              end
+             
          endcase
      end
+   
 endmodule
     
 

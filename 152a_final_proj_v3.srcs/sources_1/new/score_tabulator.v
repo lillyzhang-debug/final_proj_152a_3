@@ -79,7 +79,7 @@ always @(posedge clk) begin
         current_score <= 14'd0;
     end
     else if (user_hit) begin
-        current_score <= current_score + (800 - reaction_time); // this is the additive score
+        current_score <= current_score + ((1000 - reaction_time)/3); // this is the additive score
     end
 end
         

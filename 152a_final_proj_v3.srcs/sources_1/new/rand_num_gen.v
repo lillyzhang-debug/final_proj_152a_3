@@ -32,7 +32,7 @@ module random_number_generator(
 // aka feedback bit
 assign feedback = rand_num[5] ^ rand_num[3] ^ rand_num[4] ^ rand_num[7]; 
 
-reg [7:0] seed_val = 8'b11001100; // temporary seed value;
+reg [7:0] seed_val = 8'b10110111; // temporary seed value;
 
 always @(posedge clk) begin
     if(rst) begin
@@ -43,7 +43,7 @@ always @(posedge clk) begin
     else if (generate_num) begin
         // shift bits left and insert feedback at LSB
         rand_num <= {rand_num[6:0], feedback};
-        led_to_flash <= rand_num[6:5]; // we only have 4 LEDs to choose between
+        led_to_flash <= {rand_num[6], rand_num[3]}; // we only have 4 LEDs to choose between
     end
 end
        
