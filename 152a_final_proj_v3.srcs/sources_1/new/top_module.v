@@ -6,14 +6,10 @@
 module top_module(
 	input clk,
 	input btnS, //start button
-    input btnA, // keypad buttons
-    input btnB, 
-    input btnC,
-    input btnD,
-    input [15:13] sw, //im not sure how many switches we are going to use
-    input  wire [7:0] JB, 
+	input [15:13] sw, //switches for time
+	input  wire [7:0] JB, //keypad buttons
     // send to board
-//    output wire JB1,
+	// output wire JB1,
     output [3:0] an,
     output [6:0] seg,
     output [7:0] led,
@@ -60,8 +56,16 @@ clock clock_inst(
 //wire rst;
 assign rst = btnS; 
 
-
-input_processing mod2(
+keypad mod0(
+	.row(JB[7:4]),
+	.col4(JB[3]),
+    .btnA_raw(btnA_raw),
+    .btnB_raw(btnB_raw),
+    .btnC_raw(btnC_raw),
+    .btnD_raw(btnD_raw)
+);
+	
+input_processing mod1(
     .clk(clk), 
 	.btnS(1'b0), // wired rst directly 
     .btnA(btnA_raw),
@@ -79,31 +83,93 @@ input_processing mod2(
 	.start() //unused for now?
 );
 
+//doesnt passing in {btnD_clean, btnC_clean, btnB_clean, btnA_clean} already do this?
 // 4. THE ENCODER (Converts 4 buttons -> 2-bit Index)
-    // This makes the Game Controller logic much simpler!
-    reg [1:0] keypad_encoded;
+	reg [1:0] keypad_encoded;
     always @(*) begin
         if (btnA_clean)      keypad_encoded = 2'b00; // Matches RNG '0'
         else if (btnB_clean) keypad_encoded = 2'b01; // Matches RNG '1'
         else if (btnC_clean) keypad_encoded = 2'b10; // Matches RNG '2'
         else if (btnD_clean) keypad_encoded = 2'b11; // Matches RNG '3'
         else                 keypad_encoded = 2'b00; 
-    end
+    end 
 
 //assign rst = start_clean;
 
-keypad mod0(
-    .row(JB[7:0]),
-    .col4(JB1),
-    .btnA_raw(btnA_raw),
-    .btnB_raw(btnB_raw),
-    .btnC_raw(btnC_raw),
-    .btnD_raw(btnD_raw)
-);
-
 wire playing;
 
-display mod4(
+wire [1:0] led_to_flash;
+wire generate_num;
+wire [3:0] sec;
+wire [3:0] ten_sec;
+wire[3:0] LED_on;
+
+wire [15:0] timer;      // Carries the count-up timer
+wire [15:0] countdown;  // Carries the count-down timer (3000 -> 0)
+
+wire [7:0] rand_num;
+	
+random_number_generator mod2(
+    .clk(clk_en_1kHz),
+    .rst(rst),
+    // get from game_fsm
+    .generate_num(generate_num),
+	.rand_num(rand_num),
+    .led_to_flash(led_to_flash)
+);
+
+game_controller mod3(
+    .ms_clock(clk_en_1kHz),
+    .start(rst),
+    .keypad({btnD_clean, btnC_clean, btnB_clean, btnA_clean}),
+    .sw({sw15_clean, sw14_clean, sw13_clean}),
+    .LED_2_disp(led_to_flash),
+    // INPUTS: Taking in the calculated digits
+    .ones_score(ones),
+    .tens_score(tens),
+    .hundreds_score(hundreds),
+    .thousands_score(thousands),
+    .seconds(sec),
+    .ten_seconds(ten_sec),
+	// OUTPUTS
+    .ones(ones), 
+    .tens(tens), 
+    .hundreds(hundreds), 
+    .thousands(thousands),
+    .sec(sec),
+    .ten_sec(ten_sec),
+    .LED_on(LED_on),
+    .LED_on_2(led_debug), // for debug
+//  .started_debug(started_debug), // for debug
+    .timer(timer),
+    .countdown(countdown),
+    .generate_nums(generate_num)
+    );
+    
+    wire [10:0] reaction_time;
+//  wire [15:0] countdown;
+    wire user_hit; // might need to add more logic later
+?
+//i feel like this should be called inside of game_controller? since so many of its inputs 
+//are from that module, and that way it can input the score directly into the display info
+//and that way there is only one ouput for ones, tens, hundreds, thousands 
+//seems like it might be an issue that this module and game_controller both output those values
+score_top_module mod4(
+    .clk(clk_en_1kHz),
+//  .game_mode(game_mode),
+    .reset(rst),
+    .user_hit(user_hit),
+    .reaction_time(reaction_time),
+    .countdown(countdown),
+    .ones(ones), 
+    .tens(tens), 
+    .hundreds(hundreds), 
+    .thousands(thousands),
+    .sec(sec),
+    .ten_sec(ten_sec)
+);
+
+display mod5(
     .clk(clk),
     .rst(rst),
     .adj(playing),
@@ -117,69 +183,6 @@ display mod4(
 	.an(an)
 );
 
-wire [1:0] led_to_flash;
-wire generate_num;
-wire [3:0] sec;
-wire [3:0] ten_sec;
-wire[3:0] LED_on;
-
-wire [15:0] timer;      // Carries the count-up timer
-wire [15:0] countdown;  // Carries the count-down timer (3000 -> 0)
-
-random_number_generator mod5(
-    .clk(clk_en_1kHz),
-    .rst(rst),
-    // get from game_fsm
-    .generate_num(generate_num),
-    .led_to_flash(led_to_flash)
-    );
-   
-game_controller mod6(
-    .ms_clock(clk_en_1kHz),
-    .start(rst),
-    .keypad({btnD_clean, btnC_clean, btnB_clean, btnA_clean}),
-    .sw({sw15_clean, sw14_clean, sw13_clean}),
-    .LED_2_disp(led_to_flash),
-    // INPUTS: Taking in the calculated digits
-    .ones_score(ones),
-    .tens_score(tens),
-    .hundreds_score(hundreds),
-    .thousands_score(thousands),
-    .seconds(sec),
-    .ten_seconds(ten_sec),
-    .ones(ones), 
-    .tens(tens), 
-    .hundreds(hundreds), 
-    .thousands(thousands),
-    .sec(sec),
-    .ten_sec(ten_sec),
-    .LED_on(LED_on),
-    .LED_on_2(led_debug), // for debug
-//    .started_debug(started_debug), // for debug
-    .timer(timer),
-    .countdown(countdown),
-    .generate_nums(generate_num)
-    );
-    
-    wire [10:0] reaction_time;
-//    wire [15:0] countdown;
-    wire user_hit; // might need to add more logic later
-    
-score_top_module mod7(
-    .clk(clk_en_1kHz),
-//    .game_mode(game_mode),
-    .reset(rst),
-    .user_hit(user_hit),
-    .reaction_time(reaction_time),
-    .countdown(countdown),
-    .ones(ones), 
-    .tens(tens), 
-    .hundreds(hundreds), 
-    .thousands(thousands),
-    .sec(sec),
-    .ten_sec(ten_sec)
-    );
-
     assign led[3:0] = LED_on;
     assign led[4] = btnS;
     assign led[5] = sw13_clean;
@@ -189,5 +192,5 @@ score_top_module mod7(
     assign led_debug[14] = btnB_clean;
     assign led_debug[13] = btnC_clean;
     assign led_debug[12] = btnD_clean;
-//    assign led_debug[11] = started_debug;
+//  assign led_debug[11] = started_debug;
 endmodule
